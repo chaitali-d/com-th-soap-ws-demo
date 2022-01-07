@@ -8,10 +8,10 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
-import com.th.ws.demo.model.Employee;
+//import com.th.ws.demo.model.Employee;
 import com.th.ws.demo.service.EmployeeService;
 
-import https.www_torryharris_com.soap_ws_demo.EmployeeType;
+import https.www_torryharris_com.soap_ws_demo.Employee;
 import https.www_torryharris_com.soap_ws_demo.GetEmployeeRequest;
 import https.www_torryharris_com.soap_ws_demo.GetEmployeeResponse;
 
@@ -36,15 +36,15 @@ public class EmployeeEndpoint {
 	public GetEmployeeResponse getEmployee(@RequestPayload GetEmployeeRequest request) {
 		LOG.info("...5 getEmployee " + request.getEmployeeId());
 		GetEmployeeResponse response = new GetEmployeeResponse();
-		Employee emp = employeeService.getEmployeeById(request.getEmployeeId());
-		LOG.info(emp.toString());
-//		EmployeeType empt = emp;
-		EmployeeType empt = new EmployeeType();
+//		Employee emp = employeeService.getEmployeeById(request.getEmployeeId());
+//		LOG.info(emp.toString());
+//		Employee empt = emp;
+		Employee empt = new Employee();
 		empt.setEmployeeId(11);
 		empt.setFirstName("Sonu");
 		empt.setSalary(50000);
 		LOG.info(empt.toString());
-		response.setEmployeeType(empt);
+		response.setEmployee(empt);
 		return response;
 	}
 }
