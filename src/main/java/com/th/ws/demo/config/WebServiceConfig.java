@@ -25,7 +25,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 	@Bean
 	public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(
 			ApplicationContext applicationContext) {
-		LOG.info("0 messageDispatcherServlet");
+		LOG.info("messageDispatcherServlet");
 		MessageDispatcherServlet servlet = new MessageDispatcherServlet();
 		servlet.setApplicationContext(applicationContext);
 		servlet.setTransformWsdlLocations(true);
@@ -34,7 +34,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 
 	@Bean(name = "employees")
 	public DefaultWsdl11Definition employeeWsdl11Definition(XsdSchema employeesSchema) {
-		LOG.info("4 employeeWsdl11Definition");
+		LOG.info("employeeWsdl11Definition");
 		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
 		wsdl11Definition.setPortTypeName("EmployeesPort");
 		wsdl11Definition.setLocationUri("/ws");
@@ -46,7 +46,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 	@Primary
 	@Bean
 	public XsdSchema employeeSchema() {
-		LOG.info("3 employeeSchema");
+		LOG.info("employeeSchema");
 		return new SimpleXsdSchema(new ClassPathResource("employees.xsd"));
 	}
 
